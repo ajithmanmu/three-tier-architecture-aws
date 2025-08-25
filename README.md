@@ -43,7 +43,9 @@ Client → **Frontend ALB (public)** → **Nginx/EC2 (private)** → `/api/*` �
 ---
 
 ## Demo
-<video src="demo.mp4" controls autoplay loop muted width="600"></video>
+
+[![Watch the demo](demo-thumbnail.png)](https://www.loom.com/share/df3e58820e094092b1e3cc8fedd36a06?sid=ba89a4c0-92d8-4ce8-a112-cd5107d6505f)
+
 
 
 ---
