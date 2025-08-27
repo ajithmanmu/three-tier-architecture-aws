@@ -101,3 +101,11 @@ pip-delete-this-directory.txt
 # Docker
 docker-compose.override.yml
 .docker/
+
+# Terraform state
+terraform.tfstate
+terraform.tfstate.backup
+*.tfstate
+*.tfstate.backup
+.terraform/
+.terraform.lock.hcl
