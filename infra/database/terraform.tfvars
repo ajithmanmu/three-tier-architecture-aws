@@ -11,11 +11,11 @@ db_private_subnet_ids    = [
 
 # ---- Database settings ----
 db_identifier       = "three-tier-app-db"
-db_name             = "streetair"
+db_name             = "items"
 db_username         = "app_user"
 db_password         = "CHANGE_ME_demo_only"  # demo only; will live in TF state
 
-db_engine_version   = "15.4"
+db_engine_version   = null
 db_instance_class   = "db.t3.micro"
 allocated_storage_gb = 20
 

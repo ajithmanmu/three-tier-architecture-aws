@@ -1,0 +1,22 @@
+#!/bin/bash
+set -euxo pipefail
+
+CONF="/etc/nginx/nginx.conf"
+
+# Normalize file newlines (windows-safe) – same as your console script
+sed -i 's/\r$//' "$CONF" || true
+
+# Replace placeholder with the actual backend internal ALB DNS + port
+# - BACKEND_DNS and BACKEND_PORT are filled by Terraform templatefile()
+# - Example result: proxy_pass http://internal-xyz.elb.amazonaws.com:8000;
+if grep -q "__BACKEND_INTERNAL_ALB__" "$CONF"; then
+  sed -i "s|__BACKEND_INTERNAL_ALB__|${BACKEND_DNS}:${BACKEND_PORT}|g" "$CONF"
+fi
+
+# Fix accidental double scheme if present (defensive)
+sed -i 's|http://http://|http://|g' "$CONF" || true
+
+# Validate and restart nginx
+nginx -t
+systemctl enable nginx
+systemctl restart nginx

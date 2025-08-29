@@ -22,7 +22,7 @@ variable "db_password"   { type = string }         # mark sensitive in tfvars
 variable "db_engine_version" {
   description = "PostgreSQL engine version"
   type        = string
-  default     = "15.4"
+  default     = null
 }
 
 variable "db_instance_class" {

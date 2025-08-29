@@ -1,0 +1,21 @@
+#!/bin/bash
+set -euxo pipefail
+
+# Write env file for the backend app
+install -d -m 0755 /etc
+cat >/etc/app.env <<EOF
+DATABASE_URL=postgresql://${DB_USER}:${DB_PASSWORD}@${DB_HOST}:5432/${DB_NAME}
+# Optional discrete vars if your code reads them:
+DB_HOST=${DB_HOST}
+DB_NAME=${DB_NAME}
+DB_USER=${DB_USER}
+DB_PASSWORD=${DB_PASSWORD}
+EOF
+
+# IMPORTANT: make env readable by 'ec2-user' (service user)
+chown root:ec2-user /etc/app.env
+chmod 640 /etc/app.env
+
+systemctl daemon-reload || true
+systemctl enable app || true
+systemctl restart app || true

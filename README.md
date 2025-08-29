@@ -6,6 +6,8 @@ This repository contains a small **3-tier web application** deployed on AWS. The
 - **Backend (App tier):** A FastAPI service (Uvicorn on **:8000**) running on **EC2** behind an **internal ALB**. Instances run in **private app subnets** and are reachable only from the frontend tier.
 - **Database (Data tier):** **Amazon RDS for PostgreSQL** deployed in **private DB subnets** with no public access.
 
+Infrastructure is provisioned and managed with **Terraform**.
+
 **Request flow**
 
 Client → **Frontend ALB (public)** → **Nginx/EC2 (private)** → `/api/*` → **Backend ALB (internal)** → **FastAPI/EC2 (private)** → **RDS PostgreSQL (private)**
@@ -42,7 +44,7 @@ Client → **Frontend ALB (public)** → **Nginx/EC2 (private)** → `/api/*` �
 
 ---
 
-## Demo
+## Demo (click for video)
 
 [![Watch the demo](demo-thumbnail.png)](https://www.loom.com/share/df3e58820e094092b1e3cc8fedd36a06?sid=ba89a4c0-92d8-4ce8-a112-cd5107d6505f)
 
