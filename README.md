@@ -54,4 +54,4 @@ Client → **Frontend ALB (public)** → **Nginx/EC2 (private)** → `/api/*` �
 
 ## Full Walkthrough
 
-For a detailed step-by-step guide (with scripts, challenges, and lessons learned), see my blog post here: [link coming soon].
+For a detailed step-by-step guide (with scripts, challenges, and lessons learned), see my blog post here: https://dev.to/ajithmanmu/hands-on-with-aws-building-and-securing-a-3-tier-web-app-1fjb
